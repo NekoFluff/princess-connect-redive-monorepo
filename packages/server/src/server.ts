@@ -87,7 +87,7 @@ app.get("/bestLocations", async (req: any, res: any) => {
   res.send(sortedLocations);
 });
 
-const port = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 console.log(`Now running on port ${port}`);
 
 app.listen(port);

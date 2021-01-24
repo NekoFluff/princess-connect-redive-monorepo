@@ -16,6 +16,7 @@
   },
   "scripts": {
     "start-server": "yarn workspace @pcr/server start",
-    "start-client": "yarn workspace @pcr/client start"
+    "start-client": "yarn workspace @pcr/client start",
+    "start-client-prod": "yarn workspace @pcr/client build"
   }
 }
