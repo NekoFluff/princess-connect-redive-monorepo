@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 import { MongoClient } from "mongodb";
-import { AreaName, ItemName } from "@pcr/shared";
+import { AreaName, ItemName, BestArea } from "@pcr/shared";
 import AreaRepository from "./repos/AreaRepository";
 import CharacterRepository from "./repos/CharacterRepository";
 import MongoConnector from "./mongodb/classes/MongoConnector";
@@ -25,6 +25,12 @@ app.get("/characters", async (req: any, res: any) => {
   res.send(characters);
 });
 
+app.put("/characters", async (req: any, res: any) => {
+  const characterRepo = new CharacterRepository();
+  // let characters = await characterRepo.getCharacters();
+  res.send("PUT /characters received");
+});
+
 app.get("/bestLocations", async (req: any, res: any) => {
   // Create the repos
   const characterRepo = new CharacterRepository();
@@ -35,7 +41,7 @@ app.get("/bestLocations", async (req: any, res: any) => {
   console.log("Loaded Character Data");
   // console.log(characters)
 
-  let bestAreas: Record<AreaName, Array<ItemName>> = {};
+  let bestAreas: Record<AreaName, BestArea> = {};
 
   // For every character...
   for (const [characterName, character] of Object.entries(characters)) {
@@ -57,24 +63,22 @@ app.get("/bestLocations", async (req: any, res: any) => {
     // For every location that the item can be found at...
     for (const [areaName, unwindedArea] of Object.entries(areas)) {
       if (!(areaName in bestAreas)) {
-        bestAreas[areaName] = [];
+        bestAreas[areaName] = new BestArea(areaName);
       }
 
       // Add the item to the location
-      bestAreas[areaName].push(
-        `${unwindedArea["Item Dropped"]} [${characterName}]`
-      );
+      bestAreas[areaName].items.push({
+        itemName: unwindedArea["Item Dropped"],
+        characterName: characterName,
+      });
     }
   }
 
   // Convert the bestAreas dictionary into an array
   let sortedLocations: Array<any> = [];
-  Object.entries(bestAreas).forEach(([locationName, itemsArray]) => {
-    sortedLocations.push({
-      location: locationName,
-      items: itemsArray,
-      itemCount: itemsArray.length,
-    });
+  Object.entries(bestAreas).forEach(([locationName, bestArea]) => {
+    bestArea.itemCount = bestArea.items.length;
+    sortedLocations.push(bestArea);
   });
 
   // Sort in ascending order (so the best locations are visible at the bottom of the terminal)

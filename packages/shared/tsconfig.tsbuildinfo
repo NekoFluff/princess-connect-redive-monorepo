@@ -162,8 +162,8 @@
         "affectsGlobalScope": false
       },
       "./src/types/areatypes.ts": {
-        "version": "9466add356cffd8dbb03885ccf104e356e3342aff1f5b73c480f9e576a2f8759",
-        "signature": "46136f93d4213a2c674c366c2e279bbfb4d66d5dc4ae574a8f5f62ba13d165ad",
+        "version": "3d095ff23e0a4611b7f7dd2b7079e6b0f477b31288620281cdcf146744d44d95",
+        "signature": "fe5a664fe10f535ded1314a79d0e423ed98160540cbb246799d1b1529a418205",
         "affectsGlobalScope": false
       },
       "./src/types/charactertypes.ts": {
@@ -471,6 +471,11 @@
         "signature": "d22e870fef25a052477d24f34356470262881420c8b058c89d86392de6502c42",
         "affectsGlobalScope": false
       },
+      "../../node_modules/@types/debug/index.d.ts": {
+        "version": "3cf5f191d75bbe7c92f921e5ae12004ac672266e2be2ece69f40b1d6b1b678f9",
+        "signature": "3cf5f191d75bbe7c92f921e5ae12004ac672266e2be2ece69f40b1d6b1b678f9",
+        "affectsGlobalScope": false
+      },
       "../../node_modules/@types/eslint/helpers.d.ts": {
         "version": "f345b0888d003fd69cb32bad3a0aa04c615ccafc572019e4bd86a52bd5e49e46",
         "signature": "f345b0888d003fd69cb32bad3a0aa04c615ccafc572019e4bd86a52bd5e49e46",
@@ -509,6 +514,11 @@
       "../../node_modules/@types/html-minifier-terser/index.d.ts": {
         "version": "6767cce098e1e6369c26258b7a1f9e569c5467d501a47a090136d5ea6e80ae6d",
         "signature": "6767cce098e1e6369c26258b7a1f9e569c5467d501a47a090136d5ea6e80ae6d",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/http-proxy/index.d.ts": {
+        "version": "62245a56a6df2b5fbe569bee7d8a95e662477e38317262070dd3e82eaa8eecb6",
+        "signature": "62245a56a6df2b5fbe569bee7d8a95e662477e38317262070dd3e82eaa8eecb6",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/invariant/index.d.ts": {
@@ -784,6 +794,7 @@
       "composite": true,
       "outDir": "./build",
       "rootDir": "./src",
+      "watch": true,
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
@@ -826,6 +837,15 @@
       "../../node_modules/@types/graceful-fs/index.d.ts": [
         "../../node_modules/@types/node/fs.d.ts",
         "../../node_modules/@types/node/index.d.ts"
+      ],
+      "../../node_modules/@types/http-proxy/index.d.ts": [
+        "../../node_modules/@types/node/events.d.ts",
+        "../../node_modules/@types/node/http.d.ts",
+        "../../node_modules/@types/node/https.d.ts",
+        "../../node_modules/@types/node/index.d.ts",
+        "../../node_modules/@types/node/net.d.ts",
+        "../../node_modules/@types/node/stream.d.ts",
+        "../../node_modules/@types/node/url.d.ts"
       ],
       "../../node_modules/@types/istanbul-lib-report/index.d.ts": [
         "../../node_modules/@types/istanbul-lib-coverage/index.d.ts"
@@ -1208,6 +1228,15 @@
         "../../node_modules/@types/node/fs.d.ts",
         "../../node_modules/@types/node/index.d.ts"
       ],
+      "../../node_modules/@types/http-proxy/index.d.ts": [
+        "../../node_modules/@types/node/events.d.ts",
+        "../../node_modules/@types/node/http.d.ts",
+        "../../node_modules/@types/node/https.d.ts",
+        "../../node_modules/@types/node/index.d.ts",
+        "../../node_modules/@types/node/net.d.ts",
+        "../../node_modules/@types/node/stream.d.ts",
+        "../../node_modules/@types/node/url.d.ts"
+      ],
       "../../node_modules/@types/istanbul-lib-report/index.d.ts": [
         "../../node_modules/@types/istanbul-lib-coverage/index.d.ts"
       ],
@@ -1560,12 +1589,14 @@
       "../../node_modules/@types/bson/index.d.ts",
       "../../node_modules/@types/classnames/index.d.ts",
       "../../node_modules/@types/classnames/types.d.ts",
+      "../../node_modules/@types/debug/index.d.ts",
       "../../node_modules/@types/eslint/helpers.d.ts",
       "../../node_modules/@types/eslint/index.d.ts",
       "../../node_modules/@types/estree/index.d.ts",
       "../../node_modules/@types/glob/index.d.ts",
       "../../node_modules/@types/graceful-fs/index.d.ts",
       "../../node_modules/@types/html-minifier-terser/index.d.ts",
+      "../../node_modules/@types/http-proxy/index.d.ts",
       "../../node_modules/@types/invariant/index.d.ts",
       "../../node_modules/@types/istanbul-lib-coverage/index.d.ts",
       "../../node_modules/@types/istanbul-lib-report/index.d.ts",

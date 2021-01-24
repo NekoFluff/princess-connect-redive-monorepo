@@ -1,28 +1,26 @@
 import React from "react";
 import { Card, Button, Container, Row, ListGroup, Col } from "react-bootstrap";
-import CharacterItem from "./CharacterItem";
-import { ItemName, AreaName } from "@pcr/shared";
+import { BestArea } from "@pcr/shared";
 
 type BestAreaCardProps = {
-  areaName: AreaName;
-  items: ItemName[];
+  bestArea: BestArea;
 };
 
 const BestAreaCard: React.FC<BestAreaCardProps> = ({
-  areaName = "Area Name",
-  items = [],
+  bestArea = {} as BestArea,
 }) => {
   return (
-    <Card className="mt-2 mb-2">
+    <Card className="mt-3 mb-3">
       {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
       <Card.Body>
-        <Card.Title>{areaName}</Card.Title>
+        <Card.Title className="mb-3">{bestArea.location}</Card.Title>
         {/* <Card.Text> */}
         <Container>
-          {items.map((itemName) => {
+          {bestArea.items.map((item) => {
+            const value = `${item.itemName} [${item.characterName}]`;
             return (
-              <Row key={itemName} className="mt-1 mb-1">
-                <Col>{itemName}</Col>
+              <Row key={value} className="mt-1 mb-1">
+                <Col>{value}</Col>
                 {/* <Col xs="auto">
                   <Button>{active ? "Disable" : "Enable"}</Button>
                 </Col> */}

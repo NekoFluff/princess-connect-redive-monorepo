@@ -11,6 +11,19 @@ export class Area {
   }
 }
 
+export class BestArea {
+  ["location"]: string;
+  ["items"]: Array<{
+    itemName: string;
+    characterName: string;
+  }> = [];
+  ["itemCount"]: number;
+
+  constructor(areaName: string) {
+    this.location = areaName;
+  }
+}
+
 export class UnwindedArea {
   ["_id"]: any;
   ["Item Dropped"]: string;

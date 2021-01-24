@@ -8,3 +8,20 @@ export async function getCharacters() {
   const result = await axios.get("/api/characters");
   return result.data;
 }
+
+export async function updateCharacterItem(
+  characterName: string,
+  itemName: string,
+  acquired: boolean
+) {
+  require("axios-debug-log");
+  window.localStorage.debug = "axios";
+  const result = await axios.put("/api/characters", {
+    characterName,
+    itemName,
+    acquired,
+  });
+  console.log("Put request result");
+  console.log(result);
+  return result.data;
+}
