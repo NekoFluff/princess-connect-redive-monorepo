@@ -5,7 +5,8 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "start": "npm run aaaa"
-  }
+  "main": "index.js",
+  "repository": "git@github.com:NekoFluff/princess-connect-redive-monorepo.git",
+  "author": "Alex Nou <alexnou@gmail.com>",
+  "license": "MIT"
 }

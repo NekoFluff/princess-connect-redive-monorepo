@@ -12,5 +12,6 @@
   },
   "devDependencies": {
     "tsc-watch": "^4.2.9"
-  }
+  },
+  "license": "MIT"
 }
