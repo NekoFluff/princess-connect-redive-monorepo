@@ -1,4 +1,4 @@
-import { ItemList, CharacterName, Character } from "@pcr/shared";
+import { CharacterName, Character } from "@pcr/shared";
 import Collection from "../mongodb/classes/Collection";
 
 // class CharacterRepository {
