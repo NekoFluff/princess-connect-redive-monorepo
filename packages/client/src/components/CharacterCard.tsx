@@ -13,18 +13,24 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   rankUpItems = {},
 }) => {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card className="mt-2 mb-2">
       {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         {/* <Card.Text> */}
         <Container>
           {Object.entries(rankUpItems).map(([itemName, acquired]) => {
-            return <CharacterItem active={acquired} itemName={itemName} />;
+            return (
+              <CharacterItem
+                key={itemName}
+                active={acquired}
+                itemName={itemName}
+              />
+            );
           })}
         </Container>
         {/* </Card.Text> */}
-        <Button variant="primary">Go somewhere</Button>
+        {/* <Button variant="primary">Go somewhere</Button> */}
       </Card.Body>
     </Card>
   );

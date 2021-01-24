@@ -79,7 +79,7 @@ app.get("/bestLocations", async (req: any, res: any) => {
 
   // Sort in ascending order (so the best locations are visible at the bottom of the terminal)
   sortedLocations.sort((location1, location2) => {
-    return location1.itemCount - location2.itemCount;
+    return location2.itemCount - location1.itemCount;
   });
 
   console.log("Best Locations:");
