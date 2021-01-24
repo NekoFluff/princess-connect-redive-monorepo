@@ -13,5 +13,9 @@
     "yarn": "1.22.10",
     "npm": "7.4.3",
     "node": "14.15.4"
+  },
+  "scripts": {
+    "start-server": "yarn workspace @pcr/server start",
+    "start-client": "yarn workspace @pcr/client start"
   }
 }
