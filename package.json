@@ -10,13 +10,15 @@
   "author": "Alex Nou <alexnou@gmail.com>",
   "license": "MIT",
   "engines": {
-    "yarn": "1.22.10",
-    "npm": "7.4.3",
-    "node": "14.15.4"
+    "yarn": "^1.*",
+    "npm": "^7.*",
+    "node": "^15.*"
   },
   "scripts": {
-    "start-server": "yarn workspace @pcr/server start",
-    "start-client": "yarn workspace @pcr/client start",
-    "start-client-prod": "yarn workspace @pcr/client build"
+    "start-server-prod": "yarn workspace @pcr/server start",
+    "start-client-prod": "yarn workspace @pcr/client build",
+    "start-server-dev": "yarn workspace @pcr/server dev",
+    "start-client-dev": "yarn workspace @pcr/client start",
+    "start-shared-dev": "yarn workspace @pcr/shared dev"
   }
 }
