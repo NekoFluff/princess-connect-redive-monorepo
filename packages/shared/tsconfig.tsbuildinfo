@@ -461,6 +461,11 @@
         "signature": "2d23edce1d4a3b33280970484e17ca87b03e2829d8677ae1501de18269f0498f",
         "affectsGlobalScope": false
       },
+      "../../node_modules/@types/caseless/index.d.ts": {
+        "version": "5343f3c160282dfbaab9af350119a0c3b59b7076ef0117bb5995a66e240dab28",
+        "signature": "5343f3c160282dfbaab9af350119a0c3b59b7076ef0117bb5995a66e240dab28",
+        "affectsGlobalScope": false
+      },
       "../../node_modules/@types/classnames/types.d.ts": {
         "version": "a5a137bf9c1d3b49e2825690f43aba2b692ae27dabea94828847627e7c00fd3b",
         "signature": "a5a137bf9c1d3b49e2825690f43aba2b692ae27dabea94828847627e7c00fd3b",
@@ -666,6 +671,21 @@
         "signature": "a287b3414eb03d7697e2573baa57af270d64e44c3146dc4b721c1ba022f4121b",
         "affectsGlobalScope": false
       },
+      "../../node_modules/@types/request/node_modules/form-data/index.d.ts": {
+        "version": "e91ad231af87f864b3f07cd0e39b1cf6c133988156f087c1c3ccb0a5491c9115",
+        "signature": "e91ad231af87f864b3f07cd0e39b1cf6c133988156f087c1c3ccb0a5491c9115",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/tough-cookie/index.d.ts": {
+        "version": "a6c4cc913246a4f40423d0c6e618239072d7662bd54f6d8b8be59aec55d59873",
+        "signature": "a6c4cc913246a4f40423d0c6e618239072d7662bd54f6d8b8be59aec55d59873",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/request/index.d.ts": {
+        "version": "d3c7c28e24c242c1054c6865bb6704914dfdb212063701c6fb02a8a477d00098",
+        "signature": "d3c7c28e24c242c1054c6865bb6704914dfdb212063701c6fb02a8a477d00098",
+        "affectsGlobalScope": false
+      },
       "../../node_modules/@types/resolve/index.d.ts": {
         "version": "2880728492d6a6baa55411d14cc42fa55714a24b1d1d27ff9a8a610abd47c761",
         "signature": "2880728492d6a6baa55411d14cc42fa55714a24b1d1d27ff9a8a610abd47c761",
@@ -704,6 +724,11 @@
       "../../node_modules/@types/warning/index.d.ts": {
         "version": "abd79d61be476addd783d0e0bace2e3c02bb3e38ec23bdfd236adc421b038939",
         "signature": "abd79d61be476addd783d0e0bace2e3c02bb3e38ec23bdfd236adc421b038939",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/anymatch/index.d.ts": {
+        "version": "4fb0b7d532aa6fb850b6cd2f1ee4f00802d877b5c66a51903bc1fb0624126349",
+        "signature": "4fb0b7d532aa6fb850b6cd2f1ee4f00802d877b5c66a51903bc1fb0624126349",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts": {
@@ -1058,6 +1083,24 @@
         "../../node_modules/@types/react/global.d.ts",
         "../../node_modules/csstype/index.d.ts"
       ],
+      "../../node_modules/@types/request/index.d.ts": [
+        "../../node_modules/@types/caseless/index.d.ts",
+        "../../node_modules/@types/node/fs.d.ts",
+        "../../node_modules/@types/node/http.d.ts",
+        "../../node_modules/@types/node/https.d.ts",
+        "../../node_modules/@types/node/index.d.ts",
+        "../../node_modules/@types/node/net.d.ts",
+        "../../node_modules/@types/node/stream.d.ts",
+        "../../node_modules/@types/node/tls.d.ts",
+        "../../node_modules/@types/node/url.d.ts",
+        "../../node_modules/@types/request/node_modules/form-data/index.d.ts",
+        "../../node_modules/@types/tough-cookie/index.d.ts"
+      ],
+      "../../node_modules/@types/request/node_modules/form-data/index.d.ts": [
+        "../../node_modules/@types/node/http.d.ts",
+        "../../node_modules/@types/node/index.d.ts",
+        "../../node_modules/@types/node/stream.d.ts"
+      ],
       "../../node_modules/@types/resolve/index.d.ts": [
         "../../node_modules/@types/node/index.d.ts"
       ],
@@ -1141,12 +1184,12 @@
         "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts"
       ],
       "../../node_modules/@types/webpack/index.d.ts": [
-        "../../node_modules/@types/anymatch/index.d.ts",
         "../../node_modules/@types/node/crypto.d.ts",
         "../../node_modules/@types/node/index.d.ts",
         "../../node_modules/@types/tapable/index.d.ts",
         "../../node_modules/@types/uglify-js/index.d.ts",
         "../../node_modules/@types/webpack-sources/index.d.ts",
+        "../../node_modules/anymatch/index.d.ts",
         "../../node_modules/source-map/source-map.d.ts"
       ],
       "../../node_modules/@types/yargs/index.d.ts": [
@@ -1444,6 +1487,24 @@
         "../../node_modules/@types/react/global.d.ts",
         "../../node_modules/csstype/index.d.ts"
       ],
+      "../../node_modules/@types/request/index.d.ts": [
+        "../../node_modules/@types/caseless/index.d.ts",
+        "../../node_modules/@types/node/fs.d.ts",
+        "../../node_modules/@types/node/http.d.ts",
+        "../../node_modules/@types/node/https.d.ts",
+        "../../node_modules/@types/node/index.d.ts",
+        "../../node_modules/@types/node/net.d.ts",
+        "../../node_modules/@types/node/stream.d.ts",
+        "../../node_modules/@types/node/tls.d.ts",
+        "../../node_modules/@types/node/url.d.ts",
+        "../../node_modules/@types/request/node_modules/form-data/index.d.ts",
+        "../../node_modules/@types/tough-cookie/index.d.ts"
+      ],
+      "../../node_modules/@types/request/node_modules/form-data/index.d.ts": [
+        "../../node_modules/@types/node/http.d.ts",
+        "../../node_modules/@types/node/index.d.ts",
+        "../../node_modules/@types/node/stream.d.ts"
+      ],
       "../../node_modules/@types/resolve/index.d.ts": [
         "../../node_modules/@types/node/index.d.ts"
       ],
@@ -1527,12 +1588,12 @@
         "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts"
       ],
       "../../node_modules/@types/webpack/index.d.ts": [
-        "../../node_modules/@types/anymatch/index.d.ts",
         "../../node_modules/@types/node/crypto.d.ts",
         "../../node_modules/@types/node/index.d.ts",
         "../../node_modules/@types/tapable/index.d.ts",
         "../../node_modules/@types/uglify-js/index.d.ts",
         "../../node_modules/@types/webpack-sources/index.d.ts",
+        "../../node_modules/anymatch/index.d.ts",
         "../../node_modules/source-map/source-map.d.ts"
       ],
       "../../node_modules/@types/yargs/index.d.ts": [
@@ -1578,6 +1639,7 @@
       "../../node_modules/@types/babel__template/index.d.ts",
       "../../node_modules/@types/babel__traverse/index.d.ts",
       "../../node_modules/@types/bson/index.d.ts",
+      "../../node_modules/@types/caseless/index.d.ts",
       "../../node_modules/@types/classnames/index.d.ts",
       "../../node_modules/@types/classnames/types.d.ts",
       "../../node_modules/@types/eslint/helpers.d.ts",
@@ -4852,11 +4914,14 @@
           }
         ]
       ],
+      "../../node_modules/@types/request/index.d.ts",
+      "../../node_modules/@types/request/node_modules/form-data/index.d.ts",
       "../../node_modules/@types/resolve/index.d.ts",
       "../../node_modules/@types/source-list-map/index.d.ts",
       "../../node_modules/@types/stack-utils/index.d.ts",
       "../../node_modules/@types/tapable/index.d.ts",
       "../../node_modules/@types/testing-library__jest-dom/index.d.ts",
+      "../../node_modules/@types/tough-cookie/index.d.ts",
       "../../node_modules/@types/uglify-js/index.d.ts",
       "../../node_modules/@types/warning/index.d.ts",
       "../../node_modules/@types/webpack-sources/index.d.ts",
@@ -4875,6 +4940,7 @@
       "../../node_modules/@types/webpack/index.d.ts",
       "../../node_modules/@types/yargs-parser/index.d.ts",
       "../../node_modules/@types/yargs/index.d.ts",
+      "../../node_modules/anymatch/index.d.ts",
       "../../node_modules/csstype/index.d.ts",
       "../../node_modules/jest-diff/build/cleanupsemantic.d.ts",
       "../../node_modules/jest-diff/build/difflines.d.ts",
@@ -4956,6 +5022,10 @@
       ],
       [
         "../../node_modules/@types/bson/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/caseless/index.d.ts",
         1
       ],
       [
@@ -5279,6 +5349,14 @@
         1
       ],
       [
+        "../../node_modules/@types/request/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/request/node_modules/form-data/index.d.ts",
+        1
+      ],
+      [
         "../../node_modules/@types/resolve/index.d.ts",
         1
       ],
@@ -5296,6 +5374,10 @@
       ],
       [
         "../../node_modules/@types/testing-library__jest-dom/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/tough-cookie/index.d.ts",
         1
       ],
       [
@@ -5368,6 +5450,10 @@
       ],
       [
         "../../node_modules/@types/yargs/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/anymatch/index.d.ts",
         1
       ],
       [
