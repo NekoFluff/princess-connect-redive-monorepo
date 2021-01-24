@@ -20,12 +20,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get("/api/characters", async (req: any, res: any) => {
+  res.send("api/characters");
+});
+
+app.get("/api/bestLocations", async (req: any, res: any) => {
+  res.send("api/bestLocations");
+});
+
+app.get("/characters", async (req: any, res: any) => {
   const characterRepo = new CharacterRepository();
   let characters = await characterRepo.getCharacters();
   res.send(characters);
 });
 
-app.get("/api/bestLocations", async (req: any, res: any) => {
+app.get("/bestLocations", async (req: any, res: any) => {
   // Create the repos
   const characterRepo = new CharacterRepository();
   const areaRepo = new AreaRepository();
