@@ -14,7 +14,7 @@ function App() {
           <RefreshButton />
         </Container>
 
-        <Row>
+        <Row noGutters>
           <Col>
             <CharacterListContainer />
           </Col>
