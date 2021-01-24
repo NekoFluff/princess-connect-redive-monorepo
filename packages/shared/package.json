@@ -1,0 +1,16 @@
+{
+  "name": "@pcr/shared",
+  "version": "0.0.0",
+  "private": true,
+  "main": "build/index.js",
+  "types": "build/index.d.js",
+  "scripts": {
+    "dev": "tsc-watch"
+  },
+  "dependencies": {
+    "typescript": "^3.2.1"
+  },
+  "devDependencies": {
+    "tsc-watch": "^4.2.9"
+  }
+}
