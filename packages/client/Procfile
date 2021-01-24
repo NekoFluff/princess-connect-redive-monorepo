@@ -1,1 +1,1 @@
-web: yarn workspace @pcr/client start
+web: yarn workspace @pcr/client build
