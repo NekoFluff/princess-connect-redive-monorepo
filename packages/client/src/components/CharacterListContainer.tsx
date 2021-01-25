@@ -30,15 +30,7 @@ const CharacterListContainer: React.FC<CharacterListContainerProps> = () => {
   return (
     <Container>
       {Object.entries(characters).map(([characterName, character]) => {
-        return (
-          <CharacterCard
-            key={characterName}
-            name={characterName}
-            rankUpItems={
-              character["Rank Up Items"][character["Current Level"] - 1]
-            }
-          />
-        );
+        return <CharacterCard key={characterName} character={character} />;
       })}
     </Container>
   );

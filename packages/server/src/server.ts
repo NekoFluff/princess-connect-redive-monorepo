@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 import { MongoClient } from "mongodb";
-import { AreaName, ItemName, BestArea } from "@pcr/shared";
+import { AreaName, ItemName, BestArea, Character } from "@pcr/shared";
 import AreaRepository from "./repos/AreaRepository";
 import CharacterRepository from "./repos/CharacterRepository";
 import MongoConnector from "./mongodb/classes/MongoConnector";
@@ -25,10 +25,22 @@ app.get("/characters", async (req: any, res: any) => {
   res.send(characters);
 });
 
+// Deprecated 1/24/2021: Unnecessary with the new /character 'PUT' endpoint to update entire Character objects
 app.put("/characters", async (req: any, res: any) => {
   const characterRepo = new CharacterRepository();
-  // let characters = await characterRepo.getCharacters();
-  res.send("PUT /characters received");
+  const result = await characterRepo.updateItemStatus(
+    req.body.characterName,
+    req.body.level,
+    req.body.itemName,
+    req.body.acquired
+  );
+  res.send(result);
+});
+
+app.put("/character", async (req: any, res: any) => {
+  const characterRepo = new CharacterRepository();
+  const result = await characterRepo.update([req.body as Character]);
+  res.send(result);
 });
 
 app.get("/bestLocations", async (req: any, res: any) => {

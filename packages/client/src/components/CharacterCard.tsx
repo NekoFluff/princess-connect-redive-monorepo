@@ -1,37 +1,100 @@
 import React from "react";
-import { Card, Button, Container, Row, ListGroup, Col } from "react-bootstrap";
+import {
+  Card,
+  Container,
+  Dropdown,
+  DropdownButton,
+  Row,
+  Col,
+} from "react-bootstrap";
 import CharacterItem from "./CharacterItem";
-import { ItemList } from "@pcr/shared";
+import { Character } from "@pcr/shared";
+import { updateCharacter } from "../api/characterAPI";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 type CharacterCardProps = {
-  name: string;
-  rankUpItems: ItemList;
+  character: Character;
 };
 
-const CharacterCard: React.FC<CharacterCardProps> = ({
-  name = "Character Name",
-  rankUpItems = {},
-}) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+  const [currentCharacter, setCurrentCharacter] = useState<Character>(
+    character
+  );
+
   return (
     <Card className="mt-3 mb-3">
       {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
       <Card.Body>
-        <Card.Title className="mb-3">{name}</Card.Title>
-        {/* <Card.Text> */}
+        <Container className="mb-4">
+          <Row>
+            <Col>
+              <Card.Title className="mb-3 font-weight-bold">{`${currentCharacter["_id"]}`}</Card.Title>
+            </Col>
+            <Col xs="auto">
+              <DropdownButton
+                id="dropdown-basic-button"
+                title={`Level ${currentCharacter["Current Level"]}`}
+                onSelect={async (event) => {
+                  setCurrentCharacter({
+                    ...currentCharacter,
+                    ["Current Level"]: parseInt(`${event}`),
+                  } as Character);
+                  const success = await updateCharacter(currentCharacter);
+                  if (success) {
+                    toast.success("Successfully updated character!");
+                  } else {
+                    toast.error("Failed to update character...");
+                  }
+                }}
+              >
+                {currentCharacter["Rank Up Items"].map((_, index) => {
+                  return (
+                    <Dropdown.Item eventKey={`${index + 1}`}>{`Level ${
+                      index + 1
+                    }`}</Dropdown.Item>
+                  );
+                })}
+              </DropdownButton>
+            </Col>
+          </Row>
+        </Container>
+
         <Container>
-          {Object.entries(rankUpItems).map(([itemName, acquired]) => {
+          {Object.entries(
+            currentCharacter["Rank Up Items"][
+              currentCharacter["Current Level"] - 1
+            ]
+          ).map(([itemName, acquired]) => {
             return (
               <CharacterItem
                 key={itemName}
-                characterName={name}
+                level={currentCharacter["Current Level"]}
+                characterName={currentCharacter["_id"]}
                 itemName={itemName}
                 acquired={acquired}
+                onUpdateItem={async (newAcquired: boolean) => {
+                  const duplicate = {
+                    ...currentCharacter,
+                    // ["Rank Up Items"]: [...currentCharacter["Rank Up Items"]],
+                  };
+                  duplicate["Rank Up Items"][duplicate["Current Level"] - 1][
+                    itemName
+                  ] = newAcquired;
+
+                  setCurrentCharacter(duplicate as Character);
+
+                  const success = await updateCharacter(currentCharacter);
+                  if (success) {
+                    toast.success("Successfully updated character!");
+                  } else {
+                    toast.error("Failed to update character...");
+                  }
+                }}
               />
             );
           })}
         </Container>
-        {/* </Card.Text> */}
-        {/* <Button variant="primary">Go somewhere</Button> */}
       </Card.Body>
     </Card>
   );
