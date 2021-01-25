@@ -37,11 +37,13 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
                 id="dropdown-basic-button"
                 title={`Level ${currentCharacter["Current Level"]}`}
                 onSelect={async (event) => {
-                  setCurrentCharacter({
+                  const duplicate = {
                     ...currentCharacter,
                     ["Current Level"]: parseInt(`${event}`),
-                  } as Character);
-                  const success = await updateCharacter(currentCharacter);
+                  } as Character;
+
+                  setCurrentCharacter(duplicate);
+                  const success = await updateCharacter(duplicate);
                   if (success) {
                     toast.success("Successfully updated character!");
                   } else {
