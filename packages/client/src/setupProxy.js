@@ -1,6 +1,6 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
-module.exports = function (app: any) {
+module.exports = function (app) {
   app.use(
     createProxyMiddleware("/api", {
       target: "http://localhost:8080",
@@ -10,5 +10,3 @@ module.exports = function (app: any) {
     })
   );
 };
-
-export {};
