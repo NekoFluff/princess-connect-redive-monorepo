@@ -23,4 +23,22 @@ export default class CharacterRepository extends Collection<Character> {
     const filter = {};
     return super.find(filter);
   }
+
+  async updateItemStatus(
+    character: string,
+    level: number,
+    item: string,
+    acquired: boolean
+  ) {
+    const collection = this.getConnection();
+    const filter = { _id: character };
+    const update = {
+      $set: { [`Rank Up Items.${level - 1}.${item}`]: acquired },
+    };
+
+    const result = await collection.updateOne(filter, update);
+
+    console.log(`Update Item Status Result: ${JSON.stringify(result)}`);
+    return result;
+  }
 }
