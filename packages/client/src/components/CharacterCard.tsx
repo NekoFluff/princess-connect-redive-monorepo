@@ -6,6 +6,7 @@ import {
   DropdownButton,
   Row,
   Col,
+  Button,
 } from "react-bootstrap";
 import CharacterItem from "./CharacterItem";
 import { Character } from "@pcr/shared";
@@ -94,6 +95,28 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
               />
             );
           })}
+        </Container>
+
+        <Container className="mt-3 mb-3">
+          <Row>
+            <Button className="mt-1 mb-1" style={{ width: "100%" }}>
+              Create Item
+            </Button>
+          </Row>
+          <Row>
+            <Button className="mt-1 mb-1" style={{ width: "100%" }}>
+              Create Level
+            </Button>
+          </Row>
+          <Row>
+            <Button
+              variant="danger"
+              className="mt-1 mb-1"
+              style={{ width: "100%" }}
+            >
+              Delete Level
+            </Button>
+          </Row>
         </Container>
       </Card.Body>
     </Card>
