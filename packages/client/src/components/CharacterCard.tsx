@@ -11,7 +11,7 @@ import {
 import CharacterItem from "./CharacterItem";
 import { Character } from "@pcr/shared";
 import { updateCharacter } from "../api/characterAPI";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { toast } from "react-toastify";
 
 type CharacterCardProps = {
@@ -22,6 +22,35 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   const [currentCharacter, setCurrentCharacter] = useState<Character>(
     character
   );
+  const [deleteAttempted, setDeleteAttempted] = useState(false);
+
+  useEffect(() => {
+    setDeleteAttempted(false);
+  }, [currentCharacter]);
+
+  const deleteCurrentLevel = useCallback(async () => {
+    const duplicate = {
+      ...currentCharacter,
+      ["Rank Up Items"]: [
+        ...currentCharacter["Rank Up Items"].slice(
+          0,
+          currentCharacter["Current Level"] - 1
+        ),
+      ],
+    } as Character;
+    duplicate["Current Level"] = duplicate["Rank Up Items"].length;
+
+    setCurrentCharacter(duplicate);
+
+    const success = await updateCharacter(duplicate);
+    if (success) {
+      toast.success("Successfully updated character!");
+    } else {
+      toast.error("Failed to update character...");
+    }
+
+    setDeleteAttempted(false);
+  }, [currentCharacter, setCurrentCharacter]);
 
   return (
     <Card className="mt-3 mb-3">
@@ -80,14 +109,14 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
                   const duplicate = {
                     ...currentCharacter,
                     // ["Rank Up Items"]: [...currentCharacter["Rank Up Items"]],
-                  };
+                  } as Character;
                   duplicate["Rank Up Items"][duplicate["Current Level"] - 1][
                     itemName
                   ] = newAcquired;
 
-                  setCurrentCharacter(duplicate as Character);
+                  setCurrentCharacter(duplicate);
 
-                  const success = await updateCharacter(currentCharacter);
+                  const success = await updateCharacter(duplicate);
                   if (success) {
                     toast.success("Successfully updated character!");
                   } else {
@@ -106,7 +135,26 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
             </Button>
           </Row>
           <Row>
-            <Button className="mt-1 mb-1" style={{ width: "100%" }}>
+            <Button
+              className="mt-1 mb-1"
+              style={{ width: "100%" }}
+              onClick={async () => {
+                const duplicate = {
+                  ...currentCharacter,
+                  ["Rank Up Items"]: [...currentCharacter["Rank Up Items"], {}],
+                } as Character;
+                duplicate["Current Level"] = duplicate["Rank Up Items"].length;
+
+                setCurrentCharacter(duplicate);
+
+                const success = await updateCharacter(duplicate);
+                if (success) {
+                  toast.success("Successfully updated character!");
+                } else {
+                  toast.error("Failed to update character...");
+                }
+              }}
+            >
               Create Level
             </Button>
           </Row>
@@ -115,8 +163,17 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
               variant="danger"
               className="mt-1 mb-1"
               style={{ width: "100%" }}
+              onClick={() => {
+                if (deleteAttempted) {
+                  deleteCurrentLevel();
+                } else {
+                  setDeleteAttempted(true);
+                }
+              }}
             >
-              Delete Level
+              {deleteAttempted
+                ? "Are You Sure? Confirm Delete"
+                : "Delete Level"}
             </Button>
           </Row>
         </Container>
