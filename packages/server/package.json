@@ -7,6 +7,7 @@
     "start": "npm run build && npm run server",
     "server": "node ./build/server.js",
     "dev": "tsc-watch --onSuccess \"node ./build/server.js\"",
+    "test-feature": "tsc-watch --onSuccess \"node ./build/test-feature.js\"",
     "updateAreas": "node ./build/scripts/updateAreas.js",
     "build": "tsc --build",
     "test": "echo \"Error: no test specified\" && exit 1"
