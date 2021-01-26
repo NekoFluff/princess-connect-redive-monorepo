@@ -1,4 +1,4 @@
-import { Instantiable, MongoDBDocument } from "@monorepo/common";
+import { Instantiable, MongoDBDocument } from "@pcr/shared";
 
 export default interface ICollection<T extends MongoDBDocument> {
   insert(items: Array<T>): Promise<any>;
