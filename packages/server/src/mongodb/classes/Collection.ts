@@ -18,8 +18,9 @@ export default class Collection<T extends MongoDBDocument>
     return MongoConnector.mongodbClient.db(this.db).collection(this.collection);
   }
 
-  create(items: T[]): Promise<any> {
-    throw new Error("Method not implemented.");
+  async insert(items: T[]): Promise<any> {
+    const collection = this.getConnection();
+    return await collection.insertMany(items);
   }
 
   async find<T2 = T>(
@@ -42,6 +43,7 @@ export default class Collection<T extends MongoDBDocument>
     return this.dataToObject<T2>(rawData, overrideClassType);
   }
 
+  // Effectively replaceAll
   async update(items: T[], upsert = false): Promise<any> {
     const collection = this.getConnection();
     const options = { ordered: true };
@@ -56,13 +58,12 @@ export default class Collection<T extends MongoDBDocument>
       };
     });
 
-    const result = await collection.bulkWrite(bulkWriteOperations, options);
-
-    console.log(`Result: ${JSON.stringify(result)}`);
+    return await collection.bulkWrite(bulkWriteOperations, options);
   }
 
-  delete(filter: any): Promise<any> {
-    throw new Error("Method not implemented.");
+  async delete(filter: any): Promise<any> {
+    const collection = this.getConnection();
+    return await collection.delete(filter);
   }
 
   dataToObject<T2 = T>(

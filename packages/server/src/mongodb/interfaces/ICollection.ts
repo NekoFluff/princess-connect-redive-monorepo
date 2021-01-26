@@ -1,7 +1,7 @@
-import { Instantiable, MongoDBDocument } from "@pcr/shared";
+import { Instantiable, MongoDBDocument } from "@monorepo/common";
 
 export default interface ICollection<T extends MongoDBDocument> {
-  create(items: Array<T>): Promise<any>;
+  insert(items: Array<T>): Promise<any>;
   find<T2 = T>(
     filter: any,
     overrideClassType?: Instantiable<T2>
