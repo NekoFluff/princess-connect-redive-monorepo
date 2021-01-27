@@ -1,9 +1,10 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import BestAreaCard from "./BestAreaCard";
-import { getBestAreas } from "../api/bestLocationsAPI";
-import { BestArea } from "@pcr/shared";
+import { getBestAreas } from "../api/bestAreasAPI";
+import { BestArea, Area } from "@pcr/shared";
+import { updateArea } from "../api/areaAPI";
 
 type BsetAreaListContainerProps = {};
 
@@ -27,8 +28,21 @@ const BsetAreaListContainer: React.FC<BsetAreaListContainerProps> = () => {
     };
   }, []);
 
+  const handleCreateArea = (areaName: string) => {
+    const newArea = new Area();
+    newArea._id = areaName;
+    updateArea(newArea);
+  };
+
   return (
     <Container>
+      <Button
+        className="mt-3"
+        style={{ width: "100%" }}
+        onClick={() => handleCreateArea("X-XN")}
+      >
+        Create Area
+      </Button>
       {bestAreas.map((bestArea) => {
         return <BestAreaCard key={bestArea.location} bestArea={bestArea} />;
       })}

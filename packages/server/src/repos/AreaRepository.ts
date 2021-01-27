@@ -6,6 +6,11 @@ export default class AreaRepository extends Collection<Area> {
     super("princess-connect-redive", "areas", Area);
   }
 
+  async getArea(areaId: string) {
+    const filter = { _id: areaId };
+    return super.find(filter);
+  }
+
   async getAreasForItems(
     itemNames: ItemName[]
   ): Promise<Record<AreaName, Area>> {

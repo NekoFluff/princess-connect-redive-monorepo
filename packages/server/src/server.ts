@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 import { MongoClient } from "mongodb";
-import { AreaName, ItemName, BestArea, Character } from "@pcr/shared";
+import { AreaName, ItemName, BestArea, Character, Area } from "@pcr/shared";
 import AreaRepository from "./repos/AreaRepository";
 import CharacterRepository from "./repos/CharacterRepository";
 import MongoConnector from "./mongodb/classes/MongoConnector";
@@ -18,6 +18,19 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+
+app.put("/area", async (req: any, res: any) => {
+  const areaRepo = new AreaRepository();
+  const result = await areaRepo.update([req.body as Area], true);
+  res.send(result);
+});
+
+app.get("/area", async (req: any, res: any) => {
+  const areaRepo = new AreaRepository();
+  console.log(req.query.areaId);
+  let area = await areaRepo.getArea(req.query.areaId);
+  res.send(area);
+});
 
 app.get("/characters", async (req: any, res: any) => {
   const characterRepo = new CharacterRepository();
@@ -39,7 +52,7 @@ app.put("/characters", async (req: any, res: any) => {
 
 app.put("/character", async (req: any, res: any) => {
   const characterRepo = new CharacterRepository();
-  const result = await characterRepo.update([req.body as Character]);
+  const result = await characterRepo.update([req.body as Character], true);
   res.send(result);
 });
 
