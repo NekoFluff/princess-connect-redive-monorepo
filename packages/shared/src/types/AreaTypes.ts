@@ -25,7 +25,8 @@ export class BestArea {
 }
 
 export class UnwindedArea {
-  ["_id"]: any;
-  ["Item Dropped"]: string;
+  ["_id"]: string;
+  ["Area"]: string;
+  ["Item Drop"]: string;
   ["Drop Rate"]: number;
 }

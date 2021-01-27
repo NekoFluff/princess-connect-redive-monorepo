@@ -70,17 +70,20 @@ app.get("/bestLocations", async (req: any, res: any) => {
     }
 
     let areas = await areaRepo.getUnwindedAreasForItems(itemNames);
-    // console.log(areas);
+    console.log(`AREAS ${characterName}`);
+    console.log(areas);
 
     // For every location that the item can be found at...
-    for (const [areaName, unwindedArea] of Object.entries(areas)) {
+    for (const [_, unwindedArea] of Object.entries(areas)) {
+      const areaName = unwindedArea.Area;
+
       if (!(areaName in bestAreas)) {
         bestAreas[areaName] = new BestArea(areaName);
       }
 
       // Add the item to the location
       bestAreas[areaName].items.push({
-        itemName: unwindedArea["Item Dropped"],
+        itemName: unwindedArea["Item Drop"],
         characterName: characterName,
       });
     }

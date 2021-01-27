@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, Container, Row, ListGroup, Col } from "react-bootstrap";
+import { Card, Container, Row, Col } from "react-bootstrap";
 import { BestArea } from "@pcr/shared";
 
 type BestAreaCardProps = {

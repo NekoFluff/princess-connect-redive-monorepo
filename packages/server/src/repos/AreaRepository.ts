@@ -48,17 +48,20 @@ export default class AreaRepository extends Collection<Area> {
         },
       },
       {
+        $addFields: {
+          _id: {
+            $concat: ["$_id", "_", "$Drops.Name"],
+          },
+          Area: "$_id",
+          "Item Drop": "$Drops.Name",
+          "Drop Rate": "$Drops.Drop Rate",
+        },
+      },
+      {
         $match: {
           "Drops.Name": {
             $in: itemNames,
           },
-        },
-      },
-      {
-        $addFields: {
-          _id: "$_id",
-          "Item Dropped": "$Drops.Name",
-          "Drop Rate": "$Drops.Drop Rate",
         },
       },
       {
