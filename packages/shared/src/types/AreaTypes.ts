@@ -2,15 +2,6 @@ import { ItemDrop } from "./ItemTypes";
 
 export type AreaName = string;
 
-export class Area {
-  ["_id"]: any;
-  ["Drops"]: Array<ItemDrop> = [];
-
-  addDrop(itemDrop: ItemDrop) {
-    this.Drops.push(itemDrop);
-  }
-}
-
 export class BestArea {
   ["location"]: string;
   ["items"]: Array<{
@@ -29,4 +20,13 @@ export class UnwindedArea {
   ["Area"]: string;
   ["Item Drop"]: string;
   ["Drop Rate"]: number;
+}
+
+export class Area {
+  ["_id"]: any;
+  ["Drops"]: Array<ItemDrop> = [];
+
+  addDrop(itemDrop: ItemDrop) {
+    this.Drops.push(itemDrop);
+  }
 }

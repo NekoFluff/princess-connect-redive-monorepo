@@ -19,6 +19,7 @@ build
 .env.test.local
 .env.production.local
 tmp
+tsconfig.tsbuildinfo
 
 npm-debug.log*
 yarn-debug.log*
