@@ -53,5 +53,10 @@
     ]
   },
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": "15.6.0",
+    "yarn": "1.22.10",
+    "npm": "7.4.3"
+  }
 }
