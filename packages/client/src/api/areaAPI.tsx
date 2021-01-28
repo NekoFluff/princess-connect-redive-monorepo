@@ -6,6 +6,21 @@ export async function updateArea(area: Area): Promise<boolean> {
   return result.status === 200;
 }
 
+export async function getAreas(): Promise<Record<string, Area>> {
+  const result = await axios.get("/api/areas");
+  return result.data;
+}
+
+export async function deleteArea(areaId: string): Promise<boolean> {
+  const result = await axios.delete("/api/area", {
+    params: {
+      areaId,
+    },
+  });
+  console.log(`Delete area ${areaId}`);
+  return result.status === 200;
+}
+
 export async function getArea(areaId: string): Promise<Area> {
   const result = await axios.get("/api/area", {
     params: {

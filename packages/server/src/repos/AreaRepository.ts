@@ -11,6 +11,16 @@ export default class AreaRepository extends Collection<Area> {
     return super.find(filter);
   }
 
+  async deleteArea(areaId: string) {
+    const filter = { _id: areaId };
+    return super.delete(filter);
+  }
+
+  async getAreas() {
+    const filter = {};
+    return super.find(filter);
+  }
+
   async getAreasForItems(
     itemNames: ItemName[]
   ): Promise<Record<AreaName, Area>> {

@@ -32,6 +32,19 @@ app.get("/area", async (req: any, res: any) => {
   res.send(area);
 });
 
+app.delete("/area", async (req: any, res: any) => {
+  const areaRepo = new AreaRepository();
+  console.log(req.query.areaId);
+  let area = await areaRepo.deleteArea(req.query.areaId);
+  res.send(area);
+});
+
+app.get("/areas", async (req: any, res: any) => {
+  const areaRepo = new AreaRepository();
+  let areas = await areaRepo.getAreas();
+  res.send(areas);
+});
+
 app.get("/characters", async (req: any, res: any) => {
   const characterRepo = new CharacterRepository();
   let characters = await characterRepo.getCharacters();

@@ -63,7 +63,7 @@ export default class Collection<T extends MongoDBDocument>
 
   async delete(filter: any): Promise<any> {
     const collection = this.getConnection();
-    return await collection.delete(filter);
+    return await collection.deleteOne(filter);
   }
 
   dataToObject<T2 = T>(
