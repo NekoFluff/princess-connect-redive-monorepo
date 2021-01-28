@@ -14,33 +14,31 @@ const AreaListContainer: React.FC<AreaListContainerProps> = () => {
   const [areas, setAreas] = useState<IAreas>({} as IAreas);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  // const handleDeleteArea = async (areaId: string) => {
-  //   const success = await deleteArea(areaId);
-  //   if (success) {
-  //     toast.success(`Successfully deleted area ${areaId}!`);
-  //     const newAreas = await getAreas();
-  //     console.log("New Areas:");
-  //     console.log(newAreas);
-  //     setAreas(newAreas);
-  //   } else {
-  //     toast.error(`Failed to delete area ${areaId}`);
-  //   }
-  // };
+  const handleDeleteArea = async (areaId: string) => {
+    const success = await deleteArea(areaId);
+    if (success) {
+      toast.success(`Successfully deleted area ${areaId}!`);
+      const newAreas = await getAreas();
+      setAreas(newAreas);
+    } else {
+      toast.error(`Failed to delete area ${areaId}`);
+    }
+  };
 
-  // const handleCreateArea = async (areaName: string) => {
-  //   const newArea = new Area();
-  //   newArea._id = areaName;
-  //   const success = await updateArea(newArea);
+  const handleCreateArea = async (areaName: string) => {
+    const newArea = {} as Area;
+    newArea["_id"] = areaName;
+    const success = await updateArea(newArea);
 
-  //   if (success) {
-  //     const areas = await getAreas();
-  //     setAreas(areas);
+    if (success) {
+      const areas = await getAreas();
+      setAreas(areas);
 
-  //     toast.success("Successfully created area!");
-  //   } else {
-  //     toast.error("Failed to create area...");
-  //   }
-  // };
+      toast.success("Successfully created area!");
+    } else {
+      toast.error("Failed to create area...");
+    }
+  };
 
   useEffect(() => {
     // Create an scoped async function in the hook
@@ -55,45 +53,44 @@ const AreaListContainer: React.FC<AreaListContainerProps> = () => {
     };
   }, []);
 
-  // return (
-  //   <Container>
-  //     <NewAreaModal
-  //       show={isModalVisible}
-  //       onCancel={() => {
-  //         setIsModalVisible(false);
-  //       }}
-  //       onConfirm={(itemName: string) => {
-  //         handleCreateArea(itemName);
-  //         setIsModalVisible(false);
-  //       }}
-  //     />
+  return (
+    <Container>
+      <NewAreaModal
+        show={isModalVisible}
+        onCancel={() => {
+          setIsModalVisible(false);
+        }}
+        onConfirm={(itemName: string) => {
+          handleCreateArea(itemName);
+          setIsModalVisible(false);
+        }}
+      />
 
-  //     <Button
-  //       className="mt-3"
-  //       style={{ width: "100%" }}
-  //       onClick={() => {
-  //         setIsModalVisible(true);
-  //       }}
-  //     >
-  //       Create Area
-  //     </Button>
+      <Button
+        className="mt-3"
+        style={{ width: "100%" }}
+        onClick={() => {
+          setIsModalVisible(true);
+        }}
+      >
+        Create Area
+      </Button>
 
-  //     {Object.entries(areas)
-  //       .reverse()
-  //       .map(([_, area]) => {
-  //         return (
-  //           <AreaCard
-  //             key={area._id}
-  //             area={area}
-  //             onDeleteArea={() => {
-  //               handleDeleteArea(area._id);
-  //             }}
-  //           />
-  //         );
-  //       })}
-  //   </Container>
-  // );
-  return <div>Hello</div>;
+      {Object.entries(areas)
+        .reverse()
+        .map(([_, area]) => {
+          return (
+            <AreaCard
+              key={area._id}
+              area={area}
+              onDeleteArea={() => {
+                handleDeleteArea(area._id);
+              }}
+            />
+          );
+        })}
+    </Container>
+  );
 };
 
 export default AreaListContainer;
