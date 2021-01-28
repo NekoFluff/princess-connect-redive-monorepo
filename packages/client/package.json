@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "tsc --build && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -53,5 +53,10 @@
     ]
   },
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "yarn": "^1.*",
+    "npm": "^7.*",
+    "node": "^15.6.*"
+  }
 }
