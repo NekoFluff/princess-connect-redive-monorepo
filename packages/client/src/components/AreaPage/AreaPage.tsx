@@ -4,19 +4,7 @@ import { deleteArea, getAreas, updateArea } from "../../api/areaAPI";
 import AreaCard from "./AreaCard";
 import { toast } from "react-toastify";
 import NewAreaModal from "./NewAreaModal";
-
-class ItemDrop {
-  ["Name"]: string;
-  ["Drop Rate"]: number;
-}
-class Area {
-  ["_id"]: any;
-  ["Drops"]: Array<ItemDrop> = [];
-
-  addDrop(itemDrop: ItemDrop) {
-    this.Drops.push(itemDrop);
-  }
-}
+import { Area } from "@pcr/shared";
 
 const AreaPage = () => {
   const [areas, setAreas] = useState<Record<string, Area>>({});

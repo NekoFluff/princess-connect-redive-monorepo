@@ -1,9 +1,8 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import { useEffect, useState } from "react";
-import CharacterCard from "./CharacterCard";
-import { getCharacters } from "../../api/characterAPI";
 import { Character } from "@pcr/shared";
+import { Container } from "react-bootstrap";
+import { getCharacters } from "../../api/characterAPI";
+import CharacterCard from "./CharacterCard";
+import React, { useEffect, useState } from "react";
 
 type CharacterListContainerProps = {};
 
