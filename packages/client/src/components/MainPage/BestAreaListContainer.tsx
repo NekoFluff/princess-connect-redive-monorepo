@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import BestAreaCard from "./BestAreaCard";
-import { getBestAreas } from "../api/bestAreasAPI";
+import { getBestAreas } from "../../api/bestAreasAPI";
 import { BestArea } from "@pcr/shared";
 
 type BsetAreaListContainerProps = {};

@@ -10,10 +10,10 @@ import {
 } from "react-bootstrap";
 import CharacterItem from "./CharacterItem";
 import { Character } from "@pcr/shared";
-import { updateCharacter } from "../api/characterAPI";
+import { updateCharacter } from "../../api/characterAPI";
 import { useState, useCallback, useEffect } from "react";
 import { toast } from "react-toastify";
-import withDoubleClick from "./hoc/withDoubleClick";
+import withDoubleClick from "../hoc/withDoubleClick";
 import NewItemModal from "./NewItemModal";
 
 type CharacterCardProps = {

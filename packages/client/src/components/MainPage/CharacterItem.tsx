@@ -3,7 +3,7 @@ import { useCallback, useState, useEffect } from "react";
 // import { updateCharacterItem } from "../api/characterAPI";
 // import { toast } from "react-toastify";
 import { DashCircle } from "react-bootstrap-icons";
-import withDoubleClick from "./hoc/withDoubleClick";
+import withDoubleClick from "../hoc/withDoubleClick";
 
 type CharacterItemProps = {
   // characterName: string;

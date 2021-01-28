@@ -1,5 +1,5 @@
-import CharacterListContainer from "../CharacterListContainer";
-import BestAreaListContainer from "../BestAreaListContainer";
+import CharacterListContainer from "./CharacterListContainer";
+import BestAreaListContainer from "./BestAreaListContainer";
 import RefreshButton from "../RefreshButton";
 import { Container, Row, Col } from "react-bootstrap";
 

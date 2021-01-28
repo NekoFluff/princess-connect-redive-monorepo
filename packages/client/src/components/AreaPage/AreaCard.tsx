@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { updateArea } from "../../api/areaAPI";
 import withDoubleClick from "../hoc/withDoubleClick";
-import NewItemModal from "../NewItemModal";
+import NewItemModal from "../MainPage/NewItemModal";
 import AreaItem from "./AreaItem";
 
 type AreaCardProps = {
