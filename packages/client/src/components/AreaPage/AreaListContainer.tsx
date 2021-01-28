@@ -1,13 +1,17 @@
+import { Area } from "@pcr/shared";
 import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import { deleteArea, getAreas, updateArea } from "../../api/areaAPI";
 import AreaCard from "./AreaCard";
 import { toast } from "react-toastify";
 import NewAreaModal from "./NewAreaModal";
-import { Area } from "@pcr/shared";
 
-const AreaListContainer = () => {
-  const [areas, setAreas] = useState<Record<string, Area>>({});
+type AreaListContainerProps = {};
+
+type IAreas = { [name: string]: Area };
+
+const AreaListContainer: React.FC<AreaListContainerProps> = () => {
+  const [areas, setAreas] = useState<IAreas>({} as IAreas);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleDeleteArea = async (areaId: string) => {
