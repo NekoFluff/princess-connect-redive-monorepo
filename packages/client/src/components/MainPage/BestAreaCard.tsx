@@ -6,19 +6,6 @@ type BestAreaCardProps = {
   bestArea: BestArea;
 };
 
-// export class BestArea {
-//   ["location"]: string;
-//   ["items"]: Array<{
-//     itemName: string;
-//     characterName: string;
-//   }> = [];
-//   ["itemCount"]: number;
-
-//   constructor(areaName: string) {
-//     this.location = areaName;
-//   }
-// }
-
 const BestAreaCard: React.FC<BestAreaCardProps> = ({
   bestArea = {} as BestArea,
 }) => {
