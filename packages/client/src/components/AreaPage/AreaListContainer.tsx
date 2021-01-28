@@ -13,40 +13,39 @@ type IAreas = { [name: string]: Area };
 const AreaListContainer: React.FC<AreaListContainerProps> = () => {
   const [areas, setAreas] = useState<IAreas>({} as IAreas);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const handleDeleteArea = async (areaId: string) => {
-    const success = await deleteArea(areaId);
-    if (success) {
-      toast.success(`Successfully deleted area ${areaId}!`);
-      const newAreas = await getAreas();
-      console.log("New Areas:");
-      console.log(newAreas);
-      setAreas(newAreas);
-    } else {
-      toast.error(`Failed to delete area ${areaId}`);
-    }
-  };
 
-  const handleCreateArea = async (areaName: string) => {
-    const newArea = new Area();
-    newArea._id = areaName;
-    const success = await updateArea(newArea);
+  // const handleDeleteArea = async (areaId: string) => {
+  //   const success = await deleteArea(areaId);
+  //   if (success) {
+  //     toast.success(`Successfully deleted area ${areaId}!`);
+  //     const newAreas = await getAreas();
+  //     console.log("New Areas:");
+  //     console.log(newAreas);
+  //     setAreas(newAreas);
+  //   } else {
+  //     toast.error(`Failed to delete area ${areaId}`);
+  //   }
+  // };
 
-    if (success) {
-      const areas = await getAreas();
-      setAreas(areas);
+  // const handleCreateArea = async (areaName: string) => {
+  //   const newArea = new Area();
+  //   newArea._id = areaName;
+  //   const success = await updateArea(newArea);
 
-      toast.success("Successfully created area!");
-    } else {
-      toast.error("Failed to create area...");
-    }
-  };
+  //   if (success) {
+  //     const areas = await getAreas();
+  //     setAreas(areas);
+
+  //     toast.success("Successfully created area!");
+  //   } else {
+  //     toast.error("Failed to create area...");
+  //   }
+  // };
 
   useEffect(() => {
     // Create an scoped async function in the hook
     async function anyNameFunction() {
       const areas = await getAreas();
-      console.log("Got Areas");
-      console.log(areas);
       setAreas(areas);
     } // Execute the created function directly
     anyNameFunction();
