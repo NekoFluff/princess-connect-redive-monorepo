@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-
+import * as Shared from "@pcr/shared";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage";
-import AreaPage from "./components/AreaPage/AreaPage";
+// import AreaPage from "./components/AreaPage/AreaPage";
 import MyNavbar from "./components/MyNavbar";
 
 function App() {
@@ -29,9 +29,7 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/areas">
-            <AreaPage />
-          </Route>
+          <Route path="/areas">{/* <AreaPage /> */}</Route>
           <Route path="/">
             <MainPage />
           </Route>
