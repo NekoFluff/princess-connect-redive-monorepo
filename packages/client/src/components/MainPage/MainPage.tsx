@@ -14,7 +14,7 @@ const MainPage = () => {
         <Col>
           <CharacterListContainer />
         </Col>
-        <Col xs={8}>
+        <Col xs={8} md={8} lg={8}>
           <BestAreaListContainer />
         </Col>
       </Row>

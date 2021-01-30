@@ -1,0 +1,19 @@
+{
+  "Dungeon3": [
+    { "Mana": 31050, "Sparkling Sword": 4, "Moonlight Sword": 4 },
+    { "Mana": 62700, "Witch's Boots": 4, "Miyako's Memory Shard": 2 },
+    { "Mana": 62700, "Witch's Boots": 4, "Miyako's Memory Shard": 2 },
+    {
+      "Mana": 60000,
+      "Aurora Sword": 4,
+      "Fashionable Armor Blueprint": 4,
+      "Dungeon Coins": 600
+    },
+    { "Mana": 62700, "Witch's Boots": 4, "Miyako's Memory Shard": 2 },
+    { "Mana": 93600 },
+    { "Mana": 90900, "Dungeon Coins": 600 },
+    { "Mana": 124800 },
+    { "Mana": 154500, "Mitsuki's Memory Shard": 2, "Suzuna's Memory Shard": 2 },
+    { "Mana": 150000, "Dungeon Coins": 600 }
+  ]
+}

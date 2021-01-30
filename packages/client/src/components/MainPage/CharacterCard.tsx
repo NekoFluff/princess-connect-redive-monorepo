@@ -26,6 +26,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   );
   const [deleteAttempted, setDeleteAttempted] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isCharacterHidden, setIsCharacterHidden] = useState(true);
 
   useEffect(() => {
     setDeleteAttempted(false);
@@ -167,83 +168,104 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
               </DropdownButton>
             </Col>
           </Row>
-        </Container>
-
-        <Container>
-          {Object.entries(
-            currentCharacter["Rank Up Items"][
-              currentCharacter["Current Level"] - 1
-            ]
-          ).map(([itemName, acquired]) => {
-            return (
-              <CharacterItem
-                key={itemName}
-                // level={currentCharacter["Current Level"]}
-                // characterName={currentCharacter["_id"]}
-                itemName={itemName}
-                acquired={acquired}
-                onDeleteItem={handleDeleteItem}
-                onUpdateItem={handleUpdateItem}
-              />
-            );
-          })}
-        </Container>
-
-        <Container className="mt-3 mb-3">
           <Row>
-            <Button
-              className="mt-1 mb-1"
-              style={{ width: "100%" }}
-              onClick={() => {
-                setIsModalVisible(true);
-              }}
-            >
-              Create Item
-            </Button>
-          </Row>
-          <Row>
-            <Button
-              className="mt-1 mb-1"
-              style={{ width: "100%" }}
-              onClick={async () => {
-                const duplicate = {
-                  ...currentCharacter,
-                  "Rank Up Items": [...currentCharacter["Rank Up Items"], {}],
-                } as Character;
-                duplicate["Current Level"] = duplicate["Rank Up Items"].length;
-
-                setCurrentCharacter(duplicate);
-
-                const success = await updateCharacter(duplicate);
-                if (success) {
-                  toast.success("Successfully updated character!");
-                } else {
-                  toast.error("Failed to update character...");
-                }
-              }}
-            >
-              Create Level
-            </Button>
-          </Row>
-          <Row>
-            <DoubleClickDeleteButton
-              variant="danger"
-              className="mt-1 mb-1"
-              style={{ width: "100%" }}
-              onClickUpdate={(attempted: boolean) => {
-                setDeleteAttempted(attempted);
-              }}
-              onDoubleClick={() => {
-                deleteCurrentLevel();
-              }}
-              overrideSelected={deleteAttempted}
-            >
-              {deleteAttempted
-                ? "Are You Sure? Confirm Delete"
-                : "Delete Level"}
-            </DoubleClickDeleteButton>
+            <Col>
+              <Button
+                className="mt-2"
+                style={{ width: "100%" }}
+                onClick={() => {
+                  setIsCharacterHidden(!isCharacterHidden);
+                }}
+              >
+                {isCharacterHidden ? "Show" : "Hide"}
+              </Button>
+            </Col>
           </Row>
         </Container>
+
+        {!isCharacterHidden && (
+          <div>
+            <Container>
+              {Object.entries(
+                currentCharacter["Rank Up Items"][
+                  currentCharacter["Current Level"] - 1
+                ]
+              ).map(([itemName, acquired]) => {
+                return (
+                  <CharacterItem
+                    key={itemName}
+                    // level={currentCharacter["Current Level"]}
+                    // characterName={currentCharacter["_id"]}
+                    itemName={itemName}
+                    acquired={acquired}
+                    onDeleteItem={handleDeleteItem}
+                    onUpdateItem={handleUpdateItem}
+                  />
+                );
+              })}
+            </Container>
+
+            <Container className="mt-3 mb-3">
+              <Row>
+                <Button
+                  className="mt-1 mb-1"
+                  style={{ width: "100%" }}
+                  onClick={() => {
+                    setIsModalVisible(true);
+                  }}
+                >
+                  Create Item
+                </Button>
+              </Row>
+              <Row>
+                <Button
+                  className="mt-1 mb-1"
+                  style={{ width: "100%" }}
+                  onClick={async () => {
+                    const duplicate = {
+                      ...currentCharacter,
+                      "Rank Up Items": [
+                        ...currentCharacter["Rank Up Items"],
+                        {},
+                      ],
+                    } as Character;
+                    duplicate["Current Level"] =
+                      duplicate["Rank Up Items"].length;
+
+                    setCurrentCharacter(duplicate);
+
+                    const success = await updateCharacter(duplicate);
+                    if (success) {
+                      toast.success("Successfully updated character!");
+                    } else {
+                      toast.error("Failed to update character...");
+                    }
+                  }}
+                >
+                  Create Level
+                </Button>
+              </Row>
+              <Row>
+                <DoubleClickDeleteButton
+                  variant="danger"
+                  className="mt-1 mb-1"
+                  style={{ width: "100%" }}
+                  onClickUpdate={(attempted: boolean) => {
+                    setDeleteAttempted(attempted);
+                  }}
+                  onDoubleClick={() => {
+                    deleteCurrentLevel();
+                  }}
+                  overrideSelected={deleteAttempted}
+                >
+                  {deleteAttempted
+                    ? "Are You Sure? Confirm Delete"
+                    : "Delete Level"}
+                </DoubleClickDeleteButton>
+              </Row>
+            </Container>
+          </div>
+        )}
       </Card.Body>
     </Card>
   );
